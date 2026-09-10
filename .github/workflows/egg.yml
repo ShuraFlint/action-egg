@@ -2,6 +2,9 @@ name: 打包React项目
 
 on: push
 
+permissions:
+  contents: write
+
 jobs:
   npm-build:
     name: npm-build工作
@@ -22,3 +25,9 @@ jobs:
 
       - name: 项目打包
         run: npm run build
+
+      - name: 项目部署
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: build
