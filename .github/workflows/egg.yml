@@ -2,8 +2,8 @@ name: 打包React项目
 
 on: push
 
-permissions:
-  contents: write
+# permissions:
+#   contents: write
 
 jobs:
   npm-build:
@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 读取仓库内容
-        uses: actions/checkout@v7
+      # - name: 读取仓库内容
+      #   uses: actions/checkout@v7
 
       - name: 查看当前位置
         run: pwd
@@ -20,14 +20,17 @@ jobs:
       - name: 查看npm版本
         run: npm --version
 
-      - name: 安装依赖
-        run: npm install
+      - name: 访问指定url
+        run: curl https://fangzhouh.com/api/success
 
-      - name: 项目打包
-        run: npm run build
+      # - name: 安装依赖
+      #   run: npm install
 
-      - name: 项目部署
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: build
+      # - name: 项目打包
+      #   run: npm run build
+
+      # - name: 项目部署
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     branch: gh-pages
+      #     folder: build
